@@ -1,6 +1,7 @@
 #include <stdio.h>
 /*
-* main - Entry point
+* main - Prints "Programming is like building a multilingual
+*                puzzle, followed by a new line.
 */
 int main(void)
 {
