@@ -6,15 +6,17 @@
 int main(void)
 {
 	char digit;
+	char letter;
 
 	for (digit = 0; digit <= 9; digit++)
 	{
 	       putchar(digit + '0');
 	}
 
-	for (digit = 'a'; digit <= 'f'; digit++)
+
+	for (letter = 'a'; letter <= 'f'; letter++)
 	{
-		putchar(digit);
+		putchar(letter);
 	}
 
 	putchar('\n');
