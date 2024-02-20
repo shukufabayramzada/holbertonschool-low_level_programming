@@ -9,20 +9,20 @@
 /* betty style doc for function main goes there */
 int main(void)
 {
-	int n, lst__digit;
+	int n, digit;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	lst__digit = n % 10;
-		if (lst__digit > 5)
+	digit = n % 10;
+		if (digit > 5)
 		{
-			printf("Last digit of %d is %d and is greater than 5\n", n, lst__digit);
-		} else if (lst__digit == 0)
+			printf("Last digit of %d is %d and is greater than 5\n", n, digit);
+		} else if (digit == 0)
 		{
-			printf("Last digit of %d is %d and is 0\n", n, lst__digit);
+			printf("Last digit of %d is %d and is 0\n", n, digit);
 		} else
 		{
-			printf("Last digit of %d is %d and is less than 6 and not 0\n", n, lst__digit);
+			printf("Last digit of %d is %d and is less than 6 and not 0\n", n, digit);
 		}
 		return (0);
 }
