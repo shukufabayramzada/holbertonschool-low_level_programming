@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_alphabet_x10 - function or entry point
- * Return: Always 0 (success)
+ * Return: Void
  **/
 void print_alphabet_x10(void)
 {
