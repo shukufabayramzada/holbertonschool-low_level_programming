@@ -34,7 +34,7 @@ long maxPrimeFactors(long n)
 			n = n / (i + 2);
 		}
 	}
-	if (n < 4)
+	if (n > 4)
 		maxPrime = n;
 	return (maxPrime);
 }
