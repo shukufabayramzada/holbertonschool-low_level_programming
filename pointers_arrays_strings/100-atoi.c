@@ -8,6 +8,7 @@ int _atoi(char *s)
 {
 	int sign = 1;
 	int integer = 0;
+	int digit_found = 0;
 
 	while (*s && (*s < '0' || *s > '9') && *s != '-' && *s != '+')
 	s++;
@@ -25,6 +26,14 @@ int _atoi(char *s)
 	{
 	integer = integer * 10 + (*s - '0');
 	s++;
+	digit_found = 1;
 	}
+	if (digit_found)
+	{
 	return (sign * integer);
+	}
+	else
+	{
+	return (0);
+	}
 }
