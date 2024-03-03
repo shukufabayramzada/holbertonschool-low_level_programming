@@ -9,37 +9,22 @@
 char *rot13(char *s)
 {
     char *ptr = s;
-    char *alphabet_lower = "abcdefghijklmnopqrstuvwxyz";
-    char *alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char *rot13_lower = "nopqrstuvwxyzabcdefghijklm";
-    char *rot13_upper = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+    char *alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+    int i;
 
     for (; *ptr != '\0'; ptr++)
     {
-        int index;
-
-        index = 0;
-        while (alphabet_lower[index] != '\0')
+        for (i = 0; alphabet[i] != '\0'; i++)
         {
-            if (*ptr == alphabet_lower[index])
+            if (*ptr == alphabet[i])
             {
-                *ptr = rot13_lower[index];
+                *ptr = rot13[i];
                 break;
             }
-            index++;
-        }
-
-        index = 0;
-        while (alphabet_upper[index] != '\0')
-        {
-            if (*ptr == alphabet_upper[index])
-            {
-                *ptr = rot13_upper[index];
-                break;
-            }
-            index++;
         }
     }
 
-    return s;
+    return (s);
 }
+
