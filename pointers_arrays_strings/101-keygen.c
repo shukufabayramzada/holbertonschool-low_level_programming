@@ -11,11 +11,17 @@ int main(void) {
 
     srand(time(NULL));
 
-    for (i = 0; i < PASSWORD_LENGTH; ++i) {
-        password[i] = charset[rand() % (sizeof(charset) - 1)];
+	password[0] = charset[rand() % 26 + 26];
+
+	for (i = 1; i < 6; ++i) {
+        password[i] = charset[rand() % 26];
     }
 
-    password[PASSWORD_LENGTH] = '\0';
+	for (i = 6; i < 11; ++i) {
+        password[i] = charset[rand() % 10 + 52];
+    }
+
+	password[PASSWORD_LENGTH] = '\0';
 
     printf("%s\n", password);
 
