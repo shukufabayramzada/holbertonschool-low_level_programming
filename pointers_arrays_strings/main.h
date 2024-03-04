@@ -12,3 +12,4 @@ char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 void print_number(int n);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
+char *_memset(char *s, char b, unsigned int n);
