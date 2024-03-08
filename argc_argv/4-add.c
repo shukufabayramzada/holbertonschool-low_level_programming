@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		{
 			char *num = argv[i];
 
-			for(; *num; num++)
+			for (; *num; num++)
 			{
 				if (!isdigit(*num))
 				{
