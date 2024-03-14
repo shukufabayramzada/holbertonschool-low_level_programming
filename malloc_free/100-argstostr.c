@@ -22,9 +22,13 @@ char *argstostr(int ac, char **av)
 	}
 	for (i = 0; i < ac; i++)
 	{
-		size += strlen(av[i]) + 1;
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			size++;
+		}
+		size++;
 	}
-	new_string = malloc(size * sizeof(char));
+	new_string = malloc((size + 1) * sizeof(char));
 
 	if (new_string == NULL)
 	{
