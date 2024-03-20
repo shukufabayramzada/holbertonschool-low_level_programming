@@ -6,6 +6,7 @@
  * @array: array that we have
  * @size: size of an array
  * @cmp: pointer to the function to be used to compare values
+ * Return: index itself or -1 based on the case
  **/
 int int_index(int *array, int size, int (*cmp)(int))
 {
