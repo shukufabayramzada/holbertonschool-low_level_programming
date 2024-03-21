@@ -22,7 +22,10 @@ void print_string(va_list ap)
 	{
 		printf("(nil)");
 	}
-	printf("%s", str);
+	else
+	{
+		printf("%s", str);
+	}
 }
 void print_all(const char * const format, ...)
 {
