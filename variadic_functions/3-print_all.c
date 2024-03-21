@@ -1,19 +1,34 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "variadic_functions.h"
-
+/**
+ * print_char - prints characters
+ * @ap: argument pointer
+ **/
 void print_char(va_list ap)
 {
 	printf("%c", va_arg(ap, int));
 }
+/**
+ * print_float - prints float
+ * @ap: argument pointer
+ **/
 void print_float(va_list ap)
 {
 	printf("%f", va_arg(ap, double));
 }
+/**
+ * print_int - prints integer
+ * @ap: argument pointer
+ **/
 void print_int(va_list ap)
 {
 	printf("%d", va_arg(ap, int));
 }
+/**
+ * print_string - prints string
+ * @ap: argument pointer
+ **/
 void print_string(va_list ap)
 {
 	char *str = va_arg(ap, char *);
@@ -25,6 +40,10 @@ void print_string(va_list ap)
 	}
 	printf("%s", str);
 }
+/**
+ * print_all - prints anything
+ * @format: list of types of arguments passed to the function
+ **/
 void print_all(const char * const format, ...)
 {
 	print_type types[] = {
