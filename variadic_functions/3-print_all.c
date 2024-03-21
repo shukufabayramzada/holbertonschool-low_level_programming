@@ -21,11 +21,9 @@ void print_string(va_list ap)
 	if (str == NULL)
 	{
 		printf("(nil)");
+		return;
 	}
-	else
-	{
-		printf("%s", str);
-	}
+	printf("%s", str);
 }
 void print_all(const char * const format, ...)
 {
