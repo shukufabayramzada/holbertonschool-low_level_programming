@@ -1,61 +1,63 @@
-#include "variadic_functions.h"
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include "variadic_functions.h"
 
+void print_char(va_list ap)
+{
+	printf("%c", va_arg(ap, int));
+}
+void print_float(va_list ap)
+{
+	printf("%f", va_arg(ap, double));
+}
+void print_int(va_list ap)
+{
+	printf("%d", va_arg(ap, int));
+}
+void print_string(va_list ap)
+{
+	char *str = va_arg(ap, char *);
+
+	if (str == NULL)
+	{
+		printf("(nil)");
+	}
+	printf("%s", str);
+}
 void print_all(const char * const format, ...)
 {
-	    va_list args;
-	        int i = 0;
-		    char c;
-		        int num;
-			    float f;
-			        char *str;
-				    int first = 1;
+	print_type types[] = {
+		{"c", print_char},
+		{"f", print_float},
+		{"i", print_int},
+		{"s", print_string},
+		{NULL, NULL}
+	};
 
-				    va_start(args, format);
+	va_list(ap);
+	char *separator = "";
+	int i = 0;
+	int j = 0;
 
-				        while (format && format[i])
-						    {
-							            if (format[i] == 'c')
-									            {
-											                if (!first)
-														                printf(", ");
-													            c = va_arg(args, int);
-														                printf("%c", c);
-																            first = 0;
-																	            }
-								            else if (format[i] == 'i')
-										            {
-												                if (!first)
-															                printf(", ");
-														            num = va_arg(args, int);
-															                printf("%d", num);
-																	            first = 0;
-																		            }
-									            else if (format[i] == 'f')
-											            {
-													                if (!first)
-																                printf(", ");
-															            f = (float)va_arg(args, double);
+	va_start(ap, format);
 
-																    printf("%f", f);
-																                first = 0;
-																		        }
-										            else if (format[i] == 's')
-												            {
-														                if (!first)
-																	                printf(", ");
-																            str = va_arg(args, char *);
-																	                if (str == NULL)
-																				                printf("(nil)");
-																			            else
-																					                    printf("%s", str);
-																				                first = 0;
-																						        }
-											            i++;
-												        }
-
-					    printf("\n");
-
-					        va_end(args);
+	while (format && format[i])
+	{
+		while (types[j].type)
+		{
+			if (*types[j].type == format[i])
+			{
+				printf("%s", separator);
+				types[j].f(ap);
+				separator = ", ";
+			}
+			++j;
+		}
+		j = 0;
+		++i;
+	}
+	va_end(ap);
+	printf("\n");
 }
+
+
