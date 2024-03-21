@@ -2,17 +2,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * _ralloc - function that reallocates the memory
+ * _realloc - function that reallocates the memory
  * @ptr: is apointer previously allocated by malloc(old_size)
  * @old_size: size in bytes of the alloacted space for ptr
  * @new_size: new size in bytes of the new memory block
+ * Return: ptr/new_ptr or NULL depends on the case
  **/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	void *new_ptr;
 	unsigned int i;
 
-	if(new_size == 0 && ptr != NULL)
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
@@ -23,7 +24,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	if (new_size == old_size)
 	{
-		return(ptr);
+		return (ptr);
 	}
 	new_ptr = malloc(new_size);
 	if (new_ptr == NULL)
