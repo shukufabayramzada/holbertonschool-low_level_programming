@@ -17,11 +17,9 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (2);
 	}
-	unsigned char *main_ptr = (unsigned char *)main;
-
 	for (i = 0; i < bytes; i++)
 	{
-		printf("%02hhx ", *(main_ptr + i));
+		printf("%02hhx ", *((unsigned char *)main + i));
 	}
 	printf("\n");
 	return (0);
