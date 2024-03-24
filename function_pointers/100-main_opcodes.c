@@ -19,7 +19,11 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < bytes; i++)
 	{
-		printf("%02hhx ", *((unsigned char *)main + i));
+		printf("%.2x ", *((unsigned char *)main);
+		if (i == bytes - 1)
+			continue;
+		printf(" ");
+		main++;
 	}
 	printf("\n");
 	return (0);
