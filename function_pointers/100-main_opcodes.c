@@ -1,25 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
+/**
+ * main - prints its opcodes
+ * @argc: number of arguments
+ * @argv: an array of pointers to the arguments
+ * Return: Always 0.
+ **/
 
 int main(int argc, char *argv[])
 {
 	int bytes, i;
+	int (*address)(int, char **) = main;
+	unsigned char opcode;
 
-	if (argc > 2)
+	if (argc != 2)
 	{
 	       	printf("Error\n");
-		return (1);
+		exit(1);
 	}
 	bytes = atoi(argv[1]);
 	
 	if (bytes < 0)
 	{
 		printf("Error\n");
-		return (2);
+		exit(2);
 	}
 	for (i = 0; i < bytes; i++)
 	{
-		printf("%.2x ", *((unsigned char *)main + i));
+		opcode = *(unsigned char *)address;
+		printf("%.2x", opcode);
+
+		if (i == bytes - 1)
+			continue;
+		printf(" ");
+		address++;
 	}
 	printf("\n");
 	return (0);
