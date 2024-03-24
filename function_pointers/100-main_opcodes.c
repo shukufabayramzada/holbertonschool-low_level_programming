@@ -15,11 +15,10 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-	       	printf("Error\n");
+		printf("Error\n");
 		exit(1);
 	}
 	bytes = atoi(argv[1]);
-	
 	if (bytes < 0)
 	{
 		printf("Error\n");
