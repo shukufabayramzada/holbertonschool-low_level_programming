@@ -11,7 +11,7 @@
  **/
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *m = malloc(letters);
+	char *buf = malloc(letters);
 	int file_des;
 	int count;
 
@@ -20,12 +20,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	file_des = open(filename, O_RDONLY);
-	count = read(file_des, m, letters);
+	count = read(file_des, buf, letters);
 	if (count == -1)
 	{
 		return (0);
 	}
-	if (write(STDOUT_FILENO, m, count) == -1)
+	if (write(STDOUT_FILENO, buf, count) == -1)
 	{
 		return (0);
 	}
