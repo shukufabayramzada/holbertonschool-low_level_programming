@@ -15,7 +15,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int file_des;
 	int count;
 
-	if (filename == NULL || m == NULL)
+	if (filename == NULL || buf == NULL)
 	{
 		return (0);
 	}
