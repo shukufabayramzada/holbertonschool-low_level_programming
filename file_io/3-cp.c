@@ -42,28 +42,27 @@ int main(int argc, char *argv[])
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
-		close(fd_from);
 		print_error_exit(99, "Error: Can't write to file");
 	}
 	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
-		if (bytes_written != bytes_read)
+		if (bytes_written == -1)
 		{
-			close(fd_from);
-			close(fd_to);
 			print_error_exit(99, "Error: Can't write to the file");
 		}
 	}
 	if (bytes_read == -1)
 	{
-		close(fd_from);
-		close(fd_to);
 		print_error_exit(98, "Error: Can't read from the file");
 	}
-	if (close(fd_from) == -1 || close(fd_to) == -1)
+	if (close(fd_from) == -1)
 	{
-		print_error_exit(100, "Error: Can't close the file descriptor");
+		print_error_exit(100, "Error: Can't close the fd %d\n", fd_from);
+	}
+	if (close(fd_to) == -1)
+	{
+		print_error_exit(100, "Error: Can't close fd %d\n", fd_to);
 	}
 	return (0);
 }
