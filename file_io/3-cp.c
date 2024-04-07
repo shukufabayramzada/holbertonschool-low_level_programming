@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to the file %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
